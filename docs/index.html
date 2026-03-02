@@ -211,7 +211,7 @@
     <div class="hero-body">
       <img src="_static/media/splash.svg" alt="ManiDreams Splash Figure" style="width:100%; border-radius:10px;">
       <h2 class="subtitle has-text-centered">
-        <b>ManiDreams</b> maintains a time-varying spatial constraint (cage) around target objects,
+        <b>ManiDreams</b> maintains a time-varying constraint (cage) around target objects,
         sampling and evaluating candidate actions via parallel forward simulation for robust execution.
       </h2>
     </div>
@@ -312,7 +312,7 @@
           <div class="concept-desc">
             Forward model predicting next state given current state and action. Supports
             <em>simulation-based</em> (GPU-accelerated ManiSkill/SAPIEN) and
-            <em>learned</em> (diffusion world model) backends.
+            <em>learning-based</em> (diffusion world model) backends.
           </div>
         </div>
         <div class="concept-card" style="margin-bottom: 0.75rem;">
@@ -322,8 +322,7 @@
           </div>
           <div class="concept-desc">
             Virtual boundary providing continuous cost evaluation (for ranking) and binary validation
-            (for constraint satisfaction). Supports time-varying parameters including orbital motion
-            and custom trajectories.
+            (for constraint satisfaction). Supports time-varying parameters including deformation and custom trajectories.
           </div>
         </div>
         <div class="concept-card">
@@ -332,9 +331,9 @@
             <div class="concept-full-name">Action Selection via Sampling &amp; Optimization</div>
           </div>
           <div class="concept-desc">
-            Generates and evaluates candidate actions. Two families: <em>policy-based samplers</em>
-            (PolicySampler, GaussianSampler) and <em>planning-based optimizers</em>
-            (MPPI, Geometric, MPC).
+            Generates and evaluates candidate actions. Combines <em>samplers</em>
+            (PolicySampler, GaussianSampler) with <em>optimizers</em>
+            (MPPI, Geometric, MPC) to propose and refine actions under cage constraints.
           </div>
         </div>
       </div>
