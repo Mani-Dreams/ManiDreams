@@ -1,0 +1,1281 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Physics (TSIP) Implementations &#8212; ManiDreams</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=385b3aba" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=a2693998"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/physics';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Solver (Optimizer) Implementations" href="solvers.html" />
+    <link rel="prev" title="Cage Implementations" href="cages.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../documentation.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ManiDreams</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">About the Project</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../why_manidreams.html">Why ManiDreams?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ &amp; Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Core Concepts</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../dris.html">DRIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cage_constraints.html">Cage Constraints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tsip.html">TSIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../solvers.html">Solvers</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tasks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../supported_tasks.html">Supported Tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_tasks.html">Custom Tasks Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">API Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="core.html">Core Abstractions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="env.html">ManiDreamsEnv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cages.html">Cage Implementations</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Physics (TSIP) Implementations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="solvers.html">Solver (Optimizer) Implementations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samplers.html">Sampler Implementations</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/YourOrg/ManiDreams" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/YourOrg/ManiDreams/edit/main/docs/api/physics.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/YourOrg/ManiDreams/issues/new?title=Issue%20on%20page%20%2Fapi/physics.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/api/physics.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Physics (TSIP) Implementations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulationbasedtsip">SimulationBasedTSIP</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBasedTSIP"><code class="docutils literal notranslate"><span class="pre">SimulationBasedTSIP</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBasedTSIP.__init__"><code class="docutils literal notranslate"><span class="pre">SimulationBasedTSIP.__init__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBasedTSIP.reset"><code class="docutils literal notranslate"><span class="pre">SimulationBasedTSIP.reset()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBasedTSIP.step"><code class="docutils literal notranslate"><span class="pre">SimulationBasedTSIP.step()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBasedTSIP.get_dris"><code class="docutils literal notranslate"><span class="pre">SimulationBasedTSIP.get_dris()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBasedTSIP.set_dris"><code class="docutils literal notranslate"><span class="pre">SimulationBasedTSIP.set_dris()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBasedTSIP.next"><code class="docutils literal notranslate"><span class="pre">SimulationBasedTSIP.next()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBasedTSIP.rollout_step"><code class="docutils literal notranslate"><span class="pre">SimulationBasedTSIP.rollout_step()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBasedTSIP.set_rollout_state"><code class="docutils literal notranslate"><span class="pre">SimulationBasedTSIP.set_rollout_state()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBasedTSIP.close"><code class="docutils literal notranslate"><span class="pre">SimulationBasedTSIP.close()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBasedTSIP.get_backend_info"><code class="docutils literal notranslate"><span class="pre">SimulationBasedTSIP.get_backend_info()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulationbackend">SimulationBackend</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBackend"><code class="docutils literal notranslate"><span class="pre">SimulationBackend</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBackend.create_environment"><code class="docutils literal notranslate"><span class="pre">SimulationBackend.create_environment()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBackend.reset_environment"><code class="docutils literal notranslate"><span class="pre">SimulationBackend.reset_environment()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBackend.step_env"><code class="docutils literal notranslate"><span class="pre">SimulationBackend.step_env()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBackend.get_state"><code class="docutils literal notranslate"><span class="pre">SimulationBackend.get_state()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBackend.set_state"><code class="docutils literal notranslate"><span class="pre">SimulationBackend.set_state()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBackend.dris2state"><code class="docutils literal notranslate"><span class="pre">SimulationBackend.dris2state()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBackend.get_action_space"><code class="docutils literal notranslate"><span class="pre">SimulationBackend.get_action_space()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBackend.load_env"><code class="docutils literal notranslate"><span class="pre">SimulationBackend.load_env()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBackend.load_object"><code class="docutils literal notranslate"><span class="pre">SimulationBackend.load_object()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBackend.load_robot"><code class="docutils literal notranslate"><span class="pre">SimulationBackend.load_robot()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBackend.state2dris"><code class="docutils literal notranslate"><span class="pre">SimulationBackend.state2dris()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBackend.step_act"><code class="docutils literal notranslate"><span class="pre">SimulationBackend.step_act()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBackend.close_environment"><code class="docutils literal notranslate"><span class="pre">SimulationBackend.close_environment()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learningbasedtsip">LearningBasedTSIP</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.learned_tsip.LearningBasedTSIP"><code class="docutils literal notranslate"><span class="pre">LearningBasedTSIP</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.learned_tsip.LearningBasedTSIP.__init__"><code class="docutils literal notranslate"><span class="pre">LearningBasedTSIP.__init__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.learned_tsip.LearningBasedTSIP.reset"><code class="docutils literal notranslate"><span class="pre">LearningBasedTSIP.reset()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.learned_tsip.LearningBasedTSIP.get_dris"><code class="docutils literal notranslate"><span class="pre">LearningBasedTSIP.get_dris()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.learned_tsip.LearningBasedTSIP.set_dris"><code class="docutils literal notranslate"><span class="pre">LearningBasedTSIP.set_dris()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.learned_tsip.LearningBasedTSIP.next"><code class="docutils literal notranslate"><span class="pre">LearningBasedTSIP.next()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.learned_tsip.LearningBasedTSIP.get_observation_space"><code class="docutils literal notranslate"><span class="pre">LearningBasedTSIP.get_observation_space()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.learned_tsip.LearningBasedTSIP.get_action_space"><code class="docutils literal notranslate"><span class="pre">LearningBasedTSIP.get_action_space()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.learned_tsip.LearningBasedTSIP.close"><code class="docutils literal notranslate"><span class="pre">LearningBasedTSIP.close()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learnedbackend">LearnedBackend</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.learned_tsip.LearnedBackend"><code class="docutils literal notranslate"><span class="pre">LearnedBackend</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.learned_tsip.LearnedBackend.load_model"><code class="docutils literal notranslate"><span class="pre">LearnedBackend.load_model()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.learned_tsip.LearnedBackend.reset"><code class="docutils literal notranslate"><span class="pre">LearnedBackend.reset()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.learned_tsip.LearnedBackend.predict_step"><code class="docutils literal notranslate"><span class="pre">LearnedBackend.predict_step()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.learned_tsip.LearnedBackend.get_dris"><code class="docutils literal notranslate"><span class="pre">LearnedBackend.get_dris()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.learned_tsip.LearnedBackend.set_dris"><code class="docutils literal notranslate"><span class="pre">LearnedBackend.set_dris()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.learned_tsip.LearnedBackend.get_action_space"><code class="docutils literal notranslate"><span class="pre">LearnedBackend.get_action_space()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.learned_tsip.LearnedBackend.get_observation_space"><code class="docutils literal notranslate"><span class="pre">LearnedBackend.get_observation_space()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="physics-tsip-implementations">
+<h1>Physics (TSIP) Implementations<a class="headerlink" href="#physics-tsip-implementations" title="Link to this heading">#</a></h1>
+<p>Forward model implementations for predicting next states.</p>
+<section id="simulationbasedtsip">
+<h2>SimulationBasedTSIP<a class="headerlink" href="#simulationbasedtsip" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="manidreams.physics.simulation_tsip.SimulationBasedTSIP">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">manidreams.physics.simulation_tsip.</span></span><span class="sig-name descname"><span class="pre">SimulationBasedTSIP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">backend</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_rollout_envs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/simulation_tsip.html#SimulationBasedTSIP"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.simulation_tsip.SimulationBasedTSIP" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="core.html#manidreams.base.tsip.TSIPBase" title="manidreams.base.tsip.TSIPBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">TSIPBase</span></code></a></p>
+<p>Simulation-based TSIP implementation.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.simulation_tsip.SimulationBasedTSIP.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">backend</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_rollout_envs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/simulation_tsip.html#SimulationBasedTSIP.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.simulation_tsip.SimulationBasedTSIP.__init__" title="Link to this definition">#</a></dt>
+<dd><p>Initialize simulation-based TSIP with backend environment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>backend</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#manidreams.physics.simulation_tsip.SimulationBackend" title="manidreams.physics.simulation_tsip.SimulationBackend"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimulationBackend</span></code></a></span>) – Simulation backend instance</p></li>
+<li><p><strong>env_config</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]]</span>) – Main environment configuration</p></li>
+<li><p><strong>context_info</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]]</span>) – Additional context information</p></li>
+<li><p><strong>num_rollout_envs</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>) – Number of parallel rollout environments for MPPI.
+If 0, no rollout environment is created (backward compatible).
+If &gt;0, creates a separate rollout environment for parallel optimization.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.simulation_tsip.SimulationBasedTSIP.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/simulation_tsip.html#SimulationBasedTSIP.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.simulation_tsip.SimulationBasedTSIP.reset" title="Link to this definition">#</a></dt>
+<dd><p>Reset TSIP environment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seed</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]</span>) – Random seed</p></li>
+<li><p><strong>options</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]]</span>) – Reset options</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="core.html#manidreams.base.dris.DRIS" title="manidreams.base.dris.DRIS"><code class="xref py py-class docutils literal notranslate"><span class="pre">DRIS</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Initial DRIS</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.simulation_tsip.SimulationBasedTSIP.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">actions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/simulation_tsip.html#SimulationBasedTSIP.step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.simulation_tsip.SimulationBasedTSIP.step" title="Link to this definition">#</a></dt>
+<dd><p>Execute actions using vectorized operations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>actions</strong> – Single action or list of actions for parallel execution</p></li>
+<li><p><strong>cage</strong> – Cage object (optional, passed to backend if needed)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.simulation_tsip.SimulationBasedTSIP.get_dris">
+<span class="sig-name descname"><span class="pre">get_dris</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env_indices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/simulation_tsip.html#SimulationBasedTSIP.get_dris"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.simulation_tsip.SimulationBasedTSIP.get_dris" title="Link to this definition">#</a></dt>
+<dd><p>Get state-based DRIS from specified environments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>env_indices</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]]</span>) – List of environment indices to get DRIS from</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference internal" href="core.html#manidreams.base.dris.DRIS" title="manidreams.base.dris.DRIS"><code class="xref py py-class docutils literal notranslate"><span class="pre">DRIS</span></code></a>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of DRIS objects representing current states (one per environment)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.simulation_tsip.SimulationBasedTSIP.set_dris">
+<span class="sig-name descname"><span class="pre">set_dris</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dris</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env_indices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/simulation_tsip.html#SimulationBasedTSIP.set_dris"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.simulation_tsip.SimulationBasedTSIP.set_dris" title="Link to this definition">#</a></dt>
+<dd><p>Set DRIS state to specified environments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dris</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="core.html#manidreams.base.dris.DRIS" title="manidreams.base.dris.DRIS"><code class="xref py py-class docutils literal notranslate"><span class="pre">DRIS</span></code></a></span>) – DRIS object to set as state</p></li>
+<li><p><strong>env_indices</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]]</span>) – List of environment indices to set state for.
+If None, broadcasts to all environments.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.simulation_tsip.SimulationBasedTSIP.next">
+<span class="sig-name descname"><span class="pre">next</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dris</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/simulation_tsip.html#SimulationBasedTSIP.next"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.simulation_tsip.SimulationBasedTSIP.next" title="Link to this definition">#</a></dt>
+<dd><p>Compute next DRIS state using simulation backend.</p>
+<p>Handles two cases:
+1. Single DRIS + Single Action: Clone DRIS to all environments and execute same action
+2. Multiple DRIS + Multiple Actions: Execute each action on corresponding DRIS</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<a class="reference internal" href="core.html#manidreams.base.dris.DRIS" title="manidreams.base.dris.DRIS"><code class="xref py py-class docutils literal notranslate"><span class="pre">DRIS</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference internal" href="core.html#manidreams.base.dris.DRIS" title="manidreams.base.dris.DRIS"><code class="xref py py-class docutils literal notranslate"><span class="pre">DRIS</span></code></a>]]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.simulation_tsip.SimulationBasedTSIP.rollout_step">
+<span class="sig-name descname"><span class="pre">rollout_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">offset_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/simulation_tsip.html#SimulationBasedTSIP.rollout_step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.simulation_tsip.SimulationBasedTSIP.rollout_step" title="Link to this definition">#</a></dt>
+<dd><p>Execute a batch of offsets in parallel using rollout environment (MPPI support).</p>
+<p>This method is used by MPPI planner for parallel trajectory rollout.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>offset_batch</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]</span>) – List of offsets [num_rollout_envs, action_dim]</p></li>
+<li><p><strong>cage</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]</span>) – Optional cage object for context</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference internal" href="core.html#manidreams.base.dris.DRIS" title="manidreams.base.dris.DRIS"><code class="xref py py-class docutils literal notranslate"><span class="pre">DRIS</span></code></a>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of DRIS states after executing offsets [num_rollout_envs]</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.14)"><strong>RuntimeError</strong></a> – If rollout environment was not initialized</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.simulation_tsip.SimulationBasedTSIP.set_rollout_state">
+<span class="sig-name descname"><span class="pre">set_rollout_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dris</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/simulation_tsip.html#SimulationBasedTSIP.set_rollout_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.simulation_tsip.SimulationBasedTSIP.set_rollout_state" title="Link to this definition">#</a></dt>
+<dd><p>Copy state from main environment to all rollout environments (MPPI support).</p>
+<p>This is called at the start of each MPPI solve to initialize rollout
+environments with the current state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dris</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="core.html#manidreams.base.dris.DRIS" title="manidreams.base.dris.DRIS"><code class="xref py py-class docutils literal notranslate"><span class="pre">DRIS</span></code></a></span>) – DRIS from main environment to copy</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.14)"><strong>RuntimeError</strong></a> – If rollout environment was not initialized</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.simulation_tsip.SimulationBasedTSIP.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/simulation_tsip.html#SimulationBasedTSIP.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.simulation_tsip.SimulationBasedTSIP.close" title="Link to this definition">#</a></dt>
+<dd><p>Close simulation environments</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.simulation_tsip.SimulationBasedTSIP.get_backend_info">
+<span class="sig-name descname"><span class="pre">get_backend_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/simulation_tsip.html#SimulationBasedTSIP.get_backend_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.simulation_tsip.SimulationBasedTSIP.get_backend_info" title="Link to this definition">#</a></dt>
+<dd><p>Get information about the simulation backend</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="simulationbackend">
+<h2>SimulationBackend<a class="headerlink" href="#simulationbackend" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="manidreams.physics.simulation_tsip.SimulationBackend">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">manidreams.physics.simulation_tsip.</span></span><span class="sig-name descname"><span class="pre">SimulationBackend</span></span><a class="reference internal" href="../_modules/manidreams/physics/simulation_tsip.html#SimulationBackend"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.simulation_tsip.SimulationBackend" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<p>Abstract base class for simulation backends.</p>
+<p>This defines the interface that all simulation backends must implement
+to work with the simulation-based TSIP.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.simulation_tsip.SimulationBackend.create_environment">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">create_environment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env_config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/simulation_tsip.html#SimulationBackend.create_environment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.simulation_tsip.SimulationBackend.create_environment" title="Link to this definition">#</a></dt>
+<dd><p>Create and return a gym environment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>env_config</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]</span>) – Environment configuration including context_info</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Env</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Gym environment (backend handles any parallelization internally)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.simulation_tsip.SimulationBackend.reset_environment">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">reset_environment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/simulation_tsip.html#SimulationBackend.reset_environment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.simulation_tsip.SimulationBackend.reset_environment" title="Link to this definition">#</a></dt>
+<dd><p>Reset environment</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.simulation_tsip.SimulationBackend.step_env">
+<span class="sig-name descname"><span class="pre">step_env</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/simulation_tsip.html#SimulationBackend.step_env"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.simulation_tsip.SimulationBackend.step_env" title="Link to this definition">#</a></dt>
+<dd><p>Step environment with low-level action (default implementation)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.simulation_tsip.SimulationBackend.get_state">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/simulation_tsip.html#SimulationBackend.get_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.simulation_tsip.SimulationBackend.get_state" title="Link to this definition">#</a></dt>
+<dd><p>Get current state directly from simulation environment</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.simulation_tsip.SimulationBackend.set_state">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">set_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/simulation_tsip.html#SimulationBackend.set_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.simulation_tsip.SimulationBackend.set_state" title="Link to this definition">#</a></dt>
+<dd><p>Set environment state from state dictionary</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.simulation_tsip.SimulationBackend.dris2state">
+<span class="sig-name descname"><span class="pre">dris2state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dris</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/simulation_tsip.html#SimulationBackend.dris2state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.simulation_tsip.SimulationBackend.dris2state" title="Link to this definition">#</a></dt>
+<dd><p>Convert DRIS to state format for simulation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.simulation_tsip.SimulationBackend.get_action_space">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_action_space</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/simulation_tsip.html#SimulationBackend.get_action_space"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.simulation_tsip.SimulationBackend.get_action_space" title="Link to this definition">#</a></dt>
+<dd><p>Get action space from environment</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Space</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.simulation_tsip.SimulationBackend.load_env">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">load_env</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/simulation_tsip.html#SimulationBackend.load_env"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.simulation_tsip.SimulationBackend.load_env" title="Link to this definition">#</a></dt>
+<dd><p>Load simulation environment (table, walls, etc)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.simulation_tsip.SimulationBackend.load_object">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">load_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/simulation_tsip.html#SimulationBackend.load_object"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.simulation_tsip.SimulationBackend.load_object" title="Link to this definition">#</a></dt>
+<dd><p>Load objects into the simulation based on context</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.simulation_tsip.SimulationBackend.load_robot">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">load_robot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/simulation_tsip.html#SimulationBackend.load_robot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.simulation_tsip.SimulationBackend.load_robot" title="Link to this definition">#</a></dt>
+<dd><p>Load robot configuration based on context</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.simulation_tsip.SimulationBackend.state2dris">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">state2dris</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">observations</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env_indices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/simulation_tsip.html#SimulationBackend.state2dris"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.simulation_tsip.SimulationBackend.state2dris" title="Link to this definition">#</a></dt>
+<dd><p>Convert state observation(s) to DRIS format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>observations</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a></span>) – Single observation or list of observations</p></li>
+<li><p><strong>env_indices</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]]</span>) – Optional list of environment indices to convert</p></li>
+<li><p><strong>env_config</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]]</span>) – Optional environment configuration for context</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference internal" href="core.html#manidreams.base.dris.DRIS" title="manidreams.base.dris.DRIS"><code class="xref py py-class docutils literal notranslate"><span class="pre">DRIS</span></code></a>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of DRIS objects</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.simulation_tsip.SimulationBackend.step_act">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">step_act</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">actions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">single_action</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/simulation_tsip.html#SimulationBackend.step_act"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.simulation_tsip.SimulationBackend.step_act" title="Link to this definition">#</a></dt>
+<dd><p>Process high-level action(s) and execute environment step(s).</p>
+<p>This method should:
+1. Convert high-level action(s) to low-level control commands
+2. Call step_env() to execute the action(s) in parallel
+3. Return the observation(s)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>actions</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]]</span>) – Single action or list of actions for parallel execution</p></li>
+<li><p><strong>env</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Env</span></code></span>) – Environment to step</p></li>
+<li><p><strong>cage</strong> – Optional cage object for context</p></li>
+<li><p><strong>single_action</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span>) – If True, a single action is being broadcast to all envs</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Single observation or list of observations after stepping</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.simulation_tsip.SimulationBackend.close_environment">
+<span class="sig-name descname"><span class="pre">close_environment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/simulation_tsip.html#SimulationBackend.close_environment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.simulation_tsip.SimulationBackend.close_environment" title="Link to this definition">#</a></dt>
+<dd><p>Close environment (optional override)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="learningbasedtsip">
+<h2>LearningBasedTSIP<a class="headerlink" href="#learningbasedtsip" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="manidreams.physics.learned_tsip.LearningBasedTSIP">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">manidreams.physics.learned_tsip.</span></span><span class="sig-name descname"><span class="pre">LearningBasedTSIP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">backend</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/learned_tsip.html#LearningBasedTSIP"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.learned_tsip.LearningBasedTSIP" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="core.html#manidreams.base.tsip.TSIPBase" title="manidreams.base.tsip.TSIPBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">TSIPBase</span></code></a></p>
+<p>Simplified learned model-based TSIP.</p>
+<p>Thin wrapper around backend.predict_step() that replicates Diamond’s
+PlayCageEnv behavior. Backend maintains internal state (self.obs).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.learned_tsip.LearningBasedTSIP.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">backend</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/learned_tsip.html#LearningBasedTSIP.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.learned_tsip.LearningBasedTSIP.__init__" title="Link to this definition">#</a></dt>
+<dd><p>Initialize learning-based TSIP with backend model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>backend</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#manidreams.physics.learned_tsip.LearnedBackend" title="manidreams.physics.learned_tsip.LearnedBackend"><code class="xref py py-class docutils literal notranslate"><span class="pre">LearnedBackend</span></code></a></span>) – DiffusionBackend instance</p></li>
+<li><p><strong>model_config</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]]</span>) – Model configuration (passed to backend.load_model)</p></li>
+<li><p><strong>context_info</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]]</span>) – Additional context (unused in simplified version)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.learned_tsip.LearningBasedTSIP.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/learned_tsip.html#LearningBasedTSIP.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.learned_tsip.LearningBasedTSIP.reset" title="Link to this definition">#</a></dt>
+<dd><p>Reset TSIP model.</p>
+<p>Calls backend.reset() which replicates PlayCageEnv.reset()
+(play_cage_env.py:132-147).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seed</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]</span>) – Random seed (ignored)</p></li>
+<li><p><strong>options</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]]</span>) – Reset options (ignored)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="core.html#manidreams.base.dris.DRIS" title="manidreams.base.dris.DRIS"><code class="xref py py-class docutils literal notranslate"><span class="pre">DRIS</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Initial DRIS with observation as HWC [0,1] numpy array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.learned_tsip.LearningBasedTSIP.get_dris">
+<span class="sig-name descname"><span class="pre">get_dris</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env_indices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/learned_tsip.html#LearningBasedTSIP.get_dris"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.learned_tsip.LearningBasedTSIP.get_dris" title="Link to this definition">#</a></dt>
+<dd><p>Get current DRIS state from backend.</p>
+<p>Delegates to backend.get_dris() for state retrieval.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>env_indices</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]]</span>) – List of indices (ignored for single-env learned models)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference internal" href="core.html#manidreams.base.dris.DRIS" title="manidreams.base.dris.DRIS"><code class="xref py py-class docutils literal notranslate"><span class="pre">DRIS</span></code></a>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List containing current DRIS</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.learned_tsip.LearningBasedTSIP.set_dris">
+<span class="sig-name descname"><span class="pre">set_dris</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dris</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env_indices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/learned_tsip.html#LearningBasedTSIP.set_dris"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.learned_tsip.LearningBasedTSIP.set_dris" title="Link to this definition">#</a></dt>
+<dd><p>Set DRIS state and synchronize to backend.</p>
+<p>Delegates to backend.set_dris() for state synchronization.
+Backend handles conversion from DRIS to internal representation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dris</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="core.html#manidreams.base.dris.DRIS" title="manidreams.base.dris.DRIS"><code class="xref py py-class docutils literal notranslate"><span class="pre">DRIS</span></code></a></span>) – DRIS object to set</p></li>
+<li><p><strong>env_indices</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]]</span>) – List of indices (ignored for single-env models)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># After executor feedback</span>
+<span class="n">synthetic_image</span> <span class="o">=</span> <span class="n">generate_synthetic_observation</span><span class="p">(</span><span class="n">object_pos</span><span class="p">)</span>
+<span class="n">new_dris</span> <span class="o">=</span> <span class="n">DRIS</span><span class="p">(</span>
+    <span class="n">observation</span><span class="o">=</span><span class="n">synthetic_image</span><span class="p">,</span>
+    <span class="n">context</span><span class="o">=</span><span class="p">{},</span>
+    <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;timestep&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">}</span>
+<span class="p">)</span>
+<span class="n">tsip</span><span class="o">.</span><span class="n">set_dris</span><span class="p">(</span><span class="n">new_dris</span><span class="p">)</span>  <span class="c1"># Backend handles internal state update</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.learned_tsip.LearningBasedTSIP.next">
+<span class="sig-name descname"><span class="pre">next</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dris</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/learned_tsip.html#LearningBasedTSIP.next"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.learned_tsip.LearningBasedTSIP.next" title="Link to this definition">#</a></dt>
+<dd><p>Predict next DRIS given current DRIS and action(s).</p>
+<p>Simplified version: Directly calls backend.predict_step() which
+replicates PlayCageEnv.step() (play_cage_env.py:190-239).</p>
+<p>NOTE: dris parameter is IGNORED because backend maintains internal
+state (self.obs tensor). This replicates Diamond’s behavior where
+PlayCageEnv.step() uses self.obs instead of external state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dris</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<a class="reference internal" href="core.html#manidreams.base.dris.DRIS" title="manidreams.base.dris.DRIS"><code class="xref py py-class docutils literal notranslate"><span class="pre">DRIS</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference internal" href="core.html#manidreams.base.dris.DRIS" title="manidreams.base.dris.DRIS"><code class="xref py py-class docutils literal notranslate"><span class="pre">DRIS</span></code></a>]]</span>) – Current DRIS (IGNORED - backend uses internal state)</p></li>
+<li><p><strong>action</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]]</span>) – Action index (0-15) or list of actions</p></li>
+<li><p><strong>cage</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]</span>) – Optional cage object (ignored)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<a class="reference internal" href="core.html#manidreams.base.dris.DRIS" title="manidreams.base.dris.DRIS"><code class="xref py py-class docutils literal notranslate"><span class="pre">DRIS</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference internal" href="core.html#manidreams.base.dris.DRIS" title="manidreams.base.dris.DRIS"><code class="xref py py-class docutils literal notranslate"><span class="pre">DRIS</span></code></a>]]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Next DRIS or list of DRIS with observation as HWC [0,1] numpy</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.learned_tsip.LearningBasedTSIP.get_observation_space">
+<span class="sig-name descname"><span class="pre">get_observation_space</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/learned_tsip.html#LearningBasedTSIP.get_observation_space"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.learned_tsip.LearningBasedTSIP.get_observation_space" title="Link to this definition">#</a></dt>
+<dd><p>Get observation space from backend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Space</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.learned_tsip.LearningBasedTSIP.get_action_space">
+<span class="sig-name descname"><span class="pre">get_action_space</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/learned_tsip.html#LearningBasedTSIP.get_action_space"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.learned_tsip.LearningBasedTSIP.get_action_space" title="Link to this definition">#</a></dt>
+<dd><p>Get action space from backend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Space</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.learned_tsip.LearningBasedTSIP.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/learned_tsip.html#LearningBasedTSIP.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.learned_tsip.LearningBasedTSIP.close" title="Link to this definition">#</a></dt>
+<dd><p>Close learned model and clean up resources.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="learnedbackend">
+<h2>LearnedBackend<a class="headerlink" href="#learnedbackend" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="manidreams.physics.learned_tsip.LearnedBackend">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">manidreams.physics.learned_tsip.</span></span><span class="sig-name descname"><span class="pre">LearnedBackend</span></span><a class="reference internal" href="../_modules/manidreams/physics/learned_tsip.html#LearnedBackend"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.learned_tsip.LearnedBackend" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<p>Abstract base class for learned model backends.</p>
+<p>LearnedBackend works directly with DRIS (not state dictionaries).
+The observation format in DRIS is backend-specific (e.g., images for DiffusionBackend).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.learned_tsip.LearnedBackend.load_model">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">load_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/learned_tsip.html#LearnedBackend.load_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.learned_tsip.LearnedBackend.load_model" title="Link to this definition">#</a></dt>
+<dd><p>Load and return a learned model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>model_config</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]</span>) – Model configuration including model_path, device, etc.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Loaded model object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.learned_tsip.LearnedBackend.reset">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/learned_tsip.html#LearnedBackend.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.learned_tsip.LearnedBackend.reset" title="Link to this definition">#</a></dt>
+<dd><p>Reset model and return initial DRIS.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="core.html#manidreams.base.dris.DRIS" title="manidreams.base.dris.DRIS"><code class="xref py py-class docutils literal notranslate"><span class="pre">DRIS</span></code></a></span></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Initial DRIS (observation format is backend-specific)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.learned_tsip.LearnedBackend.predict_step">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">predict_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/learned_tsip.html#LearnedBackend.predict_step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.learned_tsip.LearnedBackend.predict_step" title="Link to this definition">#</a></dt>
+<dd><p>Predict next state given action.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a></span>) – Model object (can be ignored if backend maintains state)</p></li>
+<li><p><strong>current_state</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a></span>) – Current state (can be ignored if backend maintains state)</p></li>
+<li><p><strong>action</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a></span>) – Action index</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(next_observation, info) tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.learned_tsip.LearnedBackend.get_dris">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_dris</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/learned_tsip.html#LearnedBackend.get_dris"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.learned_tsip.LearnedBackend.get_dris" title="Link to this definition">#</a></dt>
+<dd><p>Get current DRIS from backend.</p>
+<p>Backends maintain internal state and return current DRIS.
+For DiffusionBackend, this converts internal tensor to image DRIS.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="core.html#manidreams.base.dris.DRIS" title="manidreams.base.dris.DRIS"><code class="xref py py-class docutils literal notranslate"><span class="pre">DRIS</span></code></a></span></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Current DRIS object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.learned_tsip.LearnedBackend.set_dris">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">set_dris</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dris</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/learned_tsip.html#LearnedBackend.set_dris"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.learned_tsip.LearnedBackend.set_dris" title="Link to this definition">#</a></dt>
+<dd><p>Set backend internal state from DRIS.</p>
+<p>Backends update their internal state from DRIS observation.
+For DiffusionBackend, this converts image DRIS to internal tensor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dris</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="core.html#manidreams.base.dris.DRIS" title="manidreams.base.dris.DRIS"><code class="xref py py-class docutils literal notranslate"><span class="pre">DRIS</span></code></a></span>) – DRIS object to set (observation format is backend-specific)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.learned_tsip.LearnedBackend.get_action_space">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_action_space</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/learned_tsip.html#LearnedBackend.get_action_space"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.learned_tsip.LearnedBackend.get_action_space" title="Link to this definition">#</a></dt>
+<dd><p>Get action space for the learned model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Space</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manidreams.physics.learned_tsip.LearnedBackend.get_observation_space">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_observation_space</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/manidreams/physics/learned_tsip.html#LearnedBackend.get_observation_space"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#manidreams.physics.learned_tsip.LearnedBackend.get_observation_space" title="Link to this definition">#</a></dt>
+<dd><p>Get observation space for the learned model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Space</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="cages.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Cage Implementations</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="solvers.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Solver (Optimizer) Implementations</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulationbasedtsip">SimulationBasedTSIP</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBasedTSIP"><code class="docutils literal notranslate"><span class="pre">SimulationBasedTSIP</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBasedTSIP.__init__"><code class="docutils literal notranslate"><span class="pre">SimulationBasedTSIP.__init__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBasedTSIP.reset"><code class="docutils literal notranslate"><span class="pre">SimulationBasedTSIP.reset()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBasedTSIP.step"><code class="docutils literal notranslate"><span class="pre">SimulationBasedTSIP.step()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBasedTSIP.get_dris"><code class="docutils literal notranslate"><span class="pre">SimulationBasedTSIP.get_dris()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBasedTSIP.set_dris"><code class="docutils literal notranslate"><span class="pre">SimulationBasedTSIP.set_dris()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBasedTSIP.next"><code class="docutils literal notranslate"><span class="pre">SimulationBasedTSIP.next()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBasedTSIP.rollout_step"><code class="docutils literal notranslate"><span class="pre">SimulationBasedTSIP.rollout_step()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBasedTSIP.set_rollout_state"><code class="docutils literal notranslate"><span class="pre">SimulationBasedTSIP.set_rollout_state()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBasedTSIP.close"><code class="docutils literal notranslate"><span class="pre">SimulationBasedTSIP.close()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBasedTSIP.get_backend_info"><code class="docutils literal notranslate"><span class="pre">SimulationBasedTSIP.get_backend_info()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulationbackend">SimulationBackend</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBackend"><code class="docutils literal notranslate"><span class="pre">SimulationBackend</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBackend.create_environment"><code class="docutils literal notranslate"><span class="pre">SimulationBackend.create_environment()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBackend.reset_environment"><code class="docutils literal notranslate"><span class="pre">SimulationBackend.reset_environment()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBackend.step_env"><code class="docutils literal notranslate"><span class="pre">SimulationBackend.step_env()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBackend.get_state"><code class="docutils literal notranslate"><span class="pre">SimulationBackend.get_state()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBackend.set_state"><code class="docutils literal notranslate"><span class="pre">SimulationBackend.set_state()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBackend.dris2state"><code class="docutils literal notranslate"><span class="pre">SimulationBackend.dris2state()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBackend.get_action_space"><code class="docutils literal notranslate"><span class="pre">SimulationBackend.get_action_space()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBackend.load_env"><code class="docutils literal notranslate"><span class="pre">SimulationBackend.load_env()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBackend.load_object"><code class="docutils literal notranslate"><span class="pre">SimulationBackend.load_object()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBackend.load_robot"><code class="docutils literal notranslate"><span class="pre">SimulationBackend.load_robot()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBackend.state2dris"><code class="docutils literal notranslate"><span class="pre">SimulationBackend.state2dris()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBackend.step_act"><code class="docutils literal notranslate"><span class="pre">SimulationBackend.step_act()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.simulation_tsip.SimulationBackend.close_environment"><code class="docutils literal notranslate"><span class="pre">SimulationBackend.close_environment()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learningbasedtsip">LearningBasedTSIP</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.learned_tsip.LearningBasedTSIP"><code class="docutils literal notranslate"><span class="pre">LearningBasedTSIP</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.learned_tsip.LearningBasedTSIP.__init__"><code class="docutils literal notranslate"><span class="pre">LearningBasedTSIP.__init__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.learned_tsip.LearningBasedTSIP.reset"><code class="docutils literal notranslate"><span class="pre">LearningBasedTSIP.reset()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.learned_tsip.LearningBasedTSIP.get_dris"><code class="docutils literal notranslate"><span class="pre">LearningBasedTSIP.get_dris()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.learned_tsip.LearningBasedTSIP.set_dris"><code class="docutils literal notranslate"><span class="pre">LearningBasedTSIP.set_dris()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.learned_tsip.LearningBasedTSIP.next"><code class="docutils literal notranslate"><span class="pre">LearningBasedTSIP.next()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.learned_tsip.LearningBasedTSIP.get_observation_space"><code class="docutils literal notranslate"><span class="pre">LearningBasedTSIP.get_observation_space()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.learned_tsip.LearningBasedTSIP.get_action_space"><code class="docutils literal notranslate"><span class="pre">LearningBasedTSIP.get_action_space()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.learned_tsip.LearningBasedTSIP.close"><code class="docutils literal notranslate"><span class="pre">LearningBasedTSIP.close()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learnedbackend">LearnedBackend</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.learned_tsip.LearnedBackend"><code class="docutils literal notranslate"><span class="pre">LearnedBackend</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.learned_tsip.LearnedBackend.load_model"><code class="docutils literal notranslate"><span class="pre">LearnedBackend.load_model()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.learned_tsip.LearnedBackend.reset"><code class="docutils literal notranslate"><span class="pre">LearnedBackend.reset()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.learned_tsip.LearnedBackend.predict_step"><code class="docutils literal notranslate"><span class="pre">LearnedBackend.predict_step()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.learned_tsip.LearnedBackend.get_dris"><code class="docutils literal notranslate"><span class="pre">LearnedBackend.get_dris()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.learned_tsip.LearnedBackend.set_dris"><code class="docutils literal notranslate"><span class="pre">LearnedBackend.set_dris()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.learned_tsip.LearnedBackend.get_action_space"><code class="docutils literal notranslate"><span class="pre">LearnedBackend.get_action_space()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manidreams.physics.learned_tsip.LearnedBackend.get_observation_space"><code class="docutils literal notranslate"><span class="pre">LearnedBackend.get_observation_space()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By ManiDreams Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, ManiDreams Team.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

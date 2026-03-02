@@ -1,0 +1,735 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>manidreams.cages.pixel_cage &#8212; ManiDreams</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=385b3aba" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=a2693998"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/manidreams/cages/pixel_cage';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../documentation.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ManiDreams</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quick Start</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">About the Project</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../why_manidreams.html">Why ManiDreams?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">FAQ &amp; Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Core Concepts</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../dris.html">DRIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cage_constraints.html">Cage Constraints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tsip.html">TSIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../solvers.html">Solvers</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tasks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../supported_tasks.html">Supported Tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../custom_tasks.html">Custom Tasks Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../api/index.html">API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/core.html">Core Abstractions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/env.html">ManiDreamsEnv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/cages.html">Cage Implementations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/physics.html">Physics (TSIP) Implementations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/solvers.html">Solver (Optimizer) Implementations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/samplers.html">Sampler Implementations</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/YourOrg/ManiDreams" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/YourOrg/ManiDreams/issues/new?title=Issue%20on%20page%20%2F_modules/manidreams/cages/pixel_cage.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for manidreams.cages.pixel_cage</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Pixel-based Circular Cage for Image Observations</span>
+
+<span class="sd">Replicates CageController from Diamond&#39;s play_cage16.py (lines 81-185).</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..base.cage</span><span class="w"> </span><span class="kn">import</span> <span class="n">Cage</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..base.dris</span><span class="w"> </span><span class="kn">import</span> <span class="n">DRIS</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="CircularPixelCage">
+<a class="viewcode-back" href="../../../api/cages.html#manidreams.cages.pixel_cage.CircularPixelCage">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">CircularPixelCage</span><span class="p">(</span><span class="n">Cage</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Circular cage operating on pixel coordinates.</span>
+
+<span class="sd">    1:1 replication of Diamond&#39;s CageController class.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="CircularPixelCage.__init__">
+<a class="viewcode-back" href="../../../api/cages.html#manidreams.cages.pixel_cage.CircularPixelCage.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">radius</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">22</span><span class="p">,</span>
+                 <span class="n">orbit_radius</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">42</span><span class="p">,</span>
+                 <span class="n">orbit_speed</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.013</span><span class="p">,</span>
+                 <span class="n">time_varying</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize pixel-based circular cage (play_cage16.py:82-90).</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            radius: Cage radius in pixels (default: 22)</span>
+<span class="sd">            orbit_radius: Orbital motion radius in pixels (default: 42)</span>
+<span class="sd">            orbit_speed: Angular velocity for orbit (default: 0.013)</span>
+<span class="sd">            time_varying: Enable orbital trajectory</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">state_space</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_varying</span><span class="o">=</span><span class="n">time_varying</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">radius</span>  <span class="c1"># cage_radius</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">orbit_radius</span> <span class="o">=</span> <span class="n">orbit_radius</span>  <span class="c1"># cage_orbit_radius</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">orbit_speed</span> <span class="o">=</span> <span class="n">orbit_speed</span>  <span class="c1"># cage_orbit_speed</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cage_center</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">initial_center</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">action_duration</span> <span class="o">=</span> <span class="mi">4</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Initialized with: radius=</span><span class="si">{</span><span class="n">radius</span><span class="si">}</span><span class="s2">, orbit_radius=</span><span class="si">{</span><span class="n">orbit_radius</span><span class="si">}</span><span class="s2">, orbit_speed=</span><span class="si">{</span><span class="n">orbit_speed</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># For backward compatibility</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cage_center</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_define_parameters</span><span class="p">()</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_define_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Define parameter schema for circular pixel cage&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;center&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">cage_center</span><span class="p">,</span>
+            <span class="s1">&#39;radius&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span>
+        <span class="p">}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_update_from_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Update internal state from parameters&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="s1">&#39;center&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cage_center</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;center&#39;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cage_center</span>
+        <span class="k">if</span> <span class="s1">&#39;radius&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;radius&#39;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="CircularPixelCage.initialize">
+<a class="viewcode-back" href="../../../api/cages.html#manidreams.cages.pixel_cage.CircularPixelCage.initialize">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dris</span><span class="p">:</span> <span class="n">DRIS</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize cage center on first call.</span>
+
+<span class="sd">        Sets the initial cage position to a fixed default [22, 64] in pixel</span>
+<span class="sd">        coordinates. Only runs once (subsequent calls are no-ops).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">initial_center</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">initial_center</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">22</span><span class="p">,</span> <span class="mi">64</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cage_center</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">initial_center</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cage_center</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;First PSS detected, initial cage position: (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">initial_center</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">initial_center</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="CircularPixelCage.step">
+<a class="viewcode-back" href="../../../api/cages.html#manidreams.cages.pixel_cage.CircularPixelCage.step">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Update cage position following orbital trajectory (play_cage16.py:100-107).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cage_center</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">orbit_speed</span>
+            <span class="n">dx</span> <span class="o">=</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">orbit_radius</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">orbit_radius</span>
+            <span class="n">dy</span> <span class="o">=</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">orbit_radius</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cage_center</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">initial_center</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cage_center</span>  <span class="c1"># Sync</span></div>
+
+
+<div class="viewcode-block" id="CircularPixelCage.update_cage_position">
+<a class="viewcode-back" href="../../../api/cages.html#manidreams.cages.pixel_cage.CircularPixelCage.update_cage_position">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update_cage_position</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Alias for step() to match Diamond naming&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">step</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="CircularPixelCage.compute_position_from_time">
+<a class="viewcode-back" href="../../../api/cages.html#manidreams.cages.pixel_cage.CircularPixelCage.compute_position_from_time">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute_position_from_time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute cage position from current time without incrementing time.</span>
+<span class="sd">        Used when resetting cage to a specific trajectory point.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cage_center</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">initial_center</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">dx</span> <span class="o">=</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">orbit_radius</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">orbit_radius</span>
+            <span class="n">dy</span> <span class="o">=</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">orbit_radius</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cage_center</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">initial_center</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cage_center</span>  <span class="c1"># Sync</span></div>
+
+
+<div class="viewcode-block" id="CircularPixelCage.get_pss_center">
+<a class="viewcode-back" href="../../../api/cages.html#manidreams.cages.pixel_cage.CircularPixelCage.get_pss_center">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_pss_center</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dris</span><span class="p">:</span> <span class="n">DRIS</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Detect PSS center from image (play_cage16.py:175-185).</span>
+
+<span class="sd">        Uses strict threshold: R&gt;0.7, G&lt;0.4, B&lt;0.4</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">frame</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extract_frame</span><span class="p">(</span><span class="n">dris</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">frame</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="n">red_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">frame</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.7</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">frame</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.4</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">frame</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.4</span><span class="p">)</span>
+        <span class="n">red_pixels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">red_mask</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">red_pixels</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">y_coords</span><span class="p">,</span> <span class="n">x_coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">red_mask</span><span class="p">)</span>
+            <span class="n">center</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x_coords</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y_coords</span><span class="p">)])</span>
+            <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;PSS detected: </span><span class="si">{</span><span class="n">red_pixels</span><span class="si">}</span><span class="s2"> red pixels, center at (</span><span class="si">{</span><span class="n">center</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">center</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">center</span>
+
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;No red pixels detected&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="CircularPixelCage.compute_direction">
+<a class="viewcode-back" href="../../../api/cages.html#manidreams.cages.pixel_cage.CircularPixelCage.compute_direction">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute_direction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dris</span><span class="p">:</span> <span class="n">DRIS</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute optimal pushing direction (play_cage16.py:109-160).</span>
+
+<span class="sd">        Uses looser threshold for direction: R&gt;0.6, G&lt;0.5, B&lt;0.5</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            direction_index: 0-15, or None if PSS fully inside cage</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">frame</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extract_frame</span><span class="p">(</span><span class="n">dris</span><span class="p">)</span>
+        <span class="n">pss_center</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_pss_center</span><span class="p">(</span><span class="n">dris</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">pss_center</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">cage_center</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="c1"># Create PSS mask (looser threshold)</span>
+        <span class="n">red_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">frame</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.6</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">frame</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">frame</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">)</span>
+
+        <span class="c1"># Create cage region mask</span>
+        <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ogrid</span><span class="p">[:</span><span class="n">h</span><span class="p">,</span> <span class="p">:</span><span class="n">w</span><span class="p">]</span>
+        <span class="n">cage_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">cage_center</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">cage_center</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="o">**</span><span class="mi">2</span>
+
+        <span class="c1"># Find PSS pixels outside the cage</span>
+        <span class="n">outside_pss_mask</span> <span class="o">=</span> <span class="n">red_mask</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">cage_mask</span>
+        <span class="n">outside_pixels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">outside_pss_mask</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">outside_pixels</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;All PSS pixels (</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">red_mask</span><span class="p">)</span><span class="si">}</span><span class="s2">) are inside cage region&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="c1"># Get coordinates of PSS pixels outside cage</span>
+        <span class="n">y_coords</span><span class="p">,</span> <span class="n">x_coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">outside_pss_mask</span><span class="p">)</span>
+
+        <span class="c1"># Compute distance from each pixel to cage center</span>
+        <span class="n">distance_ratio</span> <span class="o">=</span> <span class="mf">0.4</span>
+        <span class="n">distances</span> <span class="o">=</span> <span class="p">((</span><span class="n">x_coords</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">cage_center</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y_coords</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">cage_center</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="n">distance_ratio</span>
+
+        <span class="c1"># Use distance as weight (farther pixels have higher weight)</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="n">distances</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">distances</span><span class="p">)</span>
+
+        <span class="c1"># Compute weighted average position</span>
+        <span class="n">weighted_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x_coords</span> <span class="o">*</span> <span class="n">weights</span><span class="p">)</span>
+        <span class="n">weighted_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y_coords</span> <span class="o">*</span> <span class="n">weights</span><span class="p">)</span>
+        <span class="n">outside_center</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">weighted_x</span><span class="p">,</span> <span class="n">weighted_y</span><span class="p">])</span>
+
+        <span class="c1"># Compute direction relative to cage center</span>
+        <span class="n">direction</span> <span class="o">=</span> <span class="n">outside_center</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">cage_center</span>
+        <span class="n">distance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">direction</span><span class="p">)</span>
+        <span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="o">-</span><span class="n">direction</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">direction</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">angle_deg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+        <span class="n">angle_deg</span> <span class="o">=</span> <span class="p">(</span><span class="n">angle_deg</span> <span class="o">+</span> <span class="mi">360</span><span class="p">)</span> <span class="o">%</span> <span class="mi">360</span>
+
+        <span class="c1"># Map angle to one of 16 directions (22.5 degrees apart)</span>
+        <span class="n">direction_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(((</span><span class="n">angle_deg</span> <span class="o">+</span> <span class="mf">11.25</span> <span class="o">+</span> <span class="mi">90</span><span class="p">)</span> <span class="o">%</span> <span class="mi">360</span><span class="p">)</span> <span class="o">//</span> <span class="mf">22.5</span><span class="p">)</span>
+
+        <span class="c1"># Note: Removed verbose print output for performance</span>
+        <span class="c1"># These prints can be re-enabled by passing verbose=True if needed</span>
+        <span class="k">return</span> <span class="n">direction_index</span></div>
+
+
+<div class="viewcode-block" id="CircularPixelCage.validate_state">
+<a class="viewcode-back" href="../../../api/cages.html#manidreams.cages.pixel_cage.CircularPixelCage.validate_state">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate_state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dris</span><span class="p">:</span> <span class="n">DRIS</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Validate if PSS is inside cage.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            True if all PSS pixels are inside cage region</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">frame</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extract_frame</span><span class="p">(</span><span class="n">dris</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">frame</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">cage_center</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="c1"># Detect PSS (using looser threshold)</span>
+        <span class="n">red_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">frame</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.6</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">frame</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">frame</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">)</span>
+
+        <span class="c1"># Create cage mask</span>
+        <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ogrid</span><span class="p">[:</span><span class="n">h</span><span class="p">,</span> <span class="p">:</span><span class="n">w</span><span class="p">]</span>
+        <span class="n">cage_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">cage_center</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">cage_center</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="o">**</span><span class="mi">2</span>
+
+        <span class="c1"># Check if all PSS inside cage</span>
+        <span class="n">outside_pss</span> <span class="o">=</span> <span class="n">red_mask</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">cage_mask</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">outside_pss</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_extract_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dris</span><span class="p">:</span> <span class="n">DRIS</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Extract HWC image in [0,1] range from DRIS observation.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Image array in HWC format [0, 1] range, or None if extraction fails</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">dris</span><span class="p">,</span> <span class="s1">&#39;observation&#39;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="n">obs</span> <span class="o">=</span> <span class="n">dris</span><span class="o">.</span><span class="n">observation</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+            <span class="c1"># Should already be HWC in [0,1] from DiffusionBackend</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">obs</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">obs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]:</span>
+                <span class="k">return</span> <span class="n">obs</span>
+
+        <span class="k">return</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="CircularPixelCage.set_cage">
+<a class="viewcode-back" href="../../../api/cages.html#manidreams.cages.pixel_cage.CircularPixelCage.set_cage">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_cage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">region</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set cage region.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">region</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="k">if</span> <span class="s1">&#39;center&#39;</span> <span class="ow">in</span> <span class="n">region</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">cage_center</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">region</span><span class="p">[</span><span class="s1">&#39;center&#39;</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cage_center</span>
+            <span class="k">if</span> <span class="s1">&#39;radius&#39;</span> <span class="ow">in</span> <span class="n">region</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">region</span><span class="p">[</span><span class="s1">&#39;radius&#39;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_define_parameters</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="CircularPixelCage.evaluate">
+<a class="viewcode-back" href="../../../api/cages.html#manidreams.cages.pixel_cage.CircularPixelCage.evaluate">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dris_input</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">DRIS</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">DRIS</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Evaluate pixel-based DRIS using PSS center distance to cage center.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            dris_input: Single DRIS or list of DRIS states</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List of distances (lower is better)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">dris_list</span> <span class="o">=</span> <span class="n">dris_input</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dris_input</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="p">[</span><span class="n">dris_input</span><span class="p">]</span>
+
+        <span class="n">costs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">dris</span> <span class="ow">in</span> <span class="n">dris_list</span><span class="p">:</span>
+            <span class="n">pss_center</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_pss_center</span><span class="p">(</span><span class="n">dris</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">pss_center</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">cage_center</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="c1"># No PSS detected or cage not initialized</span>
+                <span class="n">costs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">distance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">pss_center</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">cage_center</span><span class="p">)</span>
+                <span class="n">costs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">distance</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">costs</span></div>
+
+
+<div class="viewcode-block" id="CircularPixelCage.validate">
+<a class="viewcode-back" href="../../../api/cages.html#manidreams.cages.pixel_cage.CircularPixelCage.validate">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dris_input</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">DRIS</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">DRIS</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">bool</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Validate pixel DRIS: check if PSS is within cage radius.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            dris_input: Single DRIS or list of DRIS states</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List of bools (True if valid - PSS within cage)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">dris_list</span> <span class="o">=</span> <span class="n">dris_input</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dris_input</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="p">[</span><span class="n">dris_input</span><span class="p">]</span>
+
+        <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">dris</span> <span class="ow">in</span> <span class="n">dris_list</span><span class="p">:</span>
+            <span class="c1"># Use existing validate_state method for each DRIS</span>
+            <span class="n">is_valid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">validate_state</span><span class="p">(</span><span class="n">dris</span><span class="p">)</span>
+            <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">is_valid</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">results</span></div>
+</div>
+
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By ManiDreams Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, ManiDreams Team.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

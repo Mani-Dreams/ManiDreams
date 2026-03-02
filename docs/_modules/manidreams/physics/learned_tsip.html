@@ -1,0 +1,723 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>manidreams.physics.learned_tsip &#8212; ManiDreams</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=385b3aba" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=a2693998"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/manidreams/physics/learned_tsip';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../documentation.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ManiDreams</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quick Start</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">About the Project</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../why_manidreams.html">Why ManiDreams?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">FAQ &amp; Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Core Concepts</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../dris.html">DRIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cage_constraints.html">Cage Constraints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tsip.html">TSIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../solvers.html">Solvers</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tasks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../supported_tasks.html">Supported Tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../custom_tasks.html">Custom Tasks Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../api/index.html">API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/core.html">Core Abstractions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/env.html">ManiDreamsEnv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/cages.html">Cage Implementations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/physics.html">Physics (TSIP) Implementations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/solvers.html">Solver (Optimizer) Implementations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/samplers.html">Sampler Implementations</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/YourOrg/ManiDreams" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/YourOrg/ManiDreams/issues/new?title=Issue%20on%20page%20%2F_modules/manidreams/physics/learned_tsip.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for manidreams.physics.learned_tsip</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Simplified Learning-based TSIP</span>
+
+<span class="sd">Thin wrapper around DiffusionBackend that replicates Diamond&#39;s PlayCageEnv behavior.</span>
+<span class="sd">No complex state encoding - directly calls backend methods.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">List</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">gymnasium</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gym</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..base.tsip</span><span class="w"> </span><span class="kn">import</span> <span class="n">TSIPBase</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..base.dris</span><span class="w"> </span><span class="kn">import</span> <span class="n">DRIS</span>
+
+
+<div class="viewcode-block" id="LearnedBackend">
+<a class="viewcode-back" href="../../../api/physics.html#manidreams.physics.learned_tsip.LearnedBackend">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">LearnedBackend</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Abstract base class for learned model backends.</span>
+
+<span class="sd">    LearnedBackend works directly with DRIS (not state dictionaries).</span>
+<span class="sd">    The observation format in DRIS is backend-specific (e.g., images for DiffusionBackend).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="LearnedBackend.load_model">
+<a class="viewcode-back" href="../../../api/physics.html#manidreams.physics.learned_tsip.LearnedBackend.load_model">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Load and return a learned model.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            model_config: Model configuration including model_path, device, etc.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Loaded model object</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="LearnedBackend.reset">
+<a class="viewcode-back" href="../../../api/physics.html#manidreams.physics.learned_tsip.LearnedBackend.reset">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DRIS</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reset model and return initial DRIS.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Initial DRIS (observation format is backend-specific)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="LearnedBackend.predict_step">
+<a class="viewcode-back" href="../../../api/physics.html#manidreams.physics.learned_tsip.LearnedBackend.predict_step">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">predict_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">current_state</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Predict next state given action.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            model: Model object (can be ignored if backend maintains state)</span>
+<span class="sd">            current_state: Current state (can be ignored if backend maintains state)</span>
+<span class="sd">            action: Action index</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            (next_observation, info) tuple</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="LearnedBackend.get_dris">
+<a class="viewcode-back" href="../../../api/physics.html#manidreams.physics.learned_tsip.LearnedBackend.get_dris">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_dris</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DRIS</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get current DRIS from backend.</span>
+
+<span class="sd">        Backends maintain internal state and return current DRIS.</span>
+<span class="sd">        For DiffusionBackend, this converts internal tensor to image DRIS.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Current DRIS object</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="LearnedBackend.set_dris">
+<a class="viewcode-back" href="../../../api/physics.html#manidreams.physics.learned_tsip.LearnedBackend.set_dris">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_dris</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dris</span><span class="p">:</span> <span class="n">DRIS</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set backend internal state from DRIS.</span>
+
+<span class="sd">        Backends update their internal state from DRIS observation.</span>
+<span class="sd">        For DiffusionBackend, this converts image DRIS to internal tensor.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            dris: DRIS object to set (observation format is backend-specific)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="LearnedBackend.get_action_space">
+<a class="viewcode-back" href="../../../api/physics.html#manidreams.physics.learned_tsip.LearnedBackend.get_action_space">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_action_space</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">gym</span><span class="o">.</span><span class="n">Space</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get action space for the learned model&quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="LearnedBackend.get_observation_space">
+<a class="viewcode-back" href="../../../api/physics.html#manidreams.physics.learned_tsip.LearnedBackend.get_observation_space">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_observation_space</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">gym</span><span class="o">.</span><span class="n">Space</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get observation space for the learned model&quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="LearningBasedTSIP">
+<a class="viewcode-back" href="../../../api/physics.html#manidreams.physics.learned_tsip.LearningBasedTSIP">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">LearningBasedTSIP</span><span class="p">(</span><span class="n">TSIPBase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Simplified learned model-based TSIP.</span>
+
+<span class="sd">    Thin wrapper around backend.predict_step() that replicates Diamond&#39;s</span>
+<span class="sd">    PlayCageEnv behavior. Backend maintains internal state (self.obs).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="LearningBasedTSIP.__init__">
+<a class="viewcode-back" href="../../../api/physics.html#manidreams.physics.learned_tsip.LearningBasedTSIP.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">backend</span><span class="p">:</span> <span class="n">LearnedBackend</span><span class="p">,</span>
+                 <span class="n">model_config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">context_info</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize learning-based TSIP with backend model.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            backend: DiffusionBackend instance</span>
+<span class="sd">            model_config: Model configuration (passed to backend.load_model)</span>
+<span class="sd">            context_info: Additional context (unused in simplified version)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">backend</span> <span class="o">=</span> <span class="n">backend</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model_config</span> <span class="o">=</span> <span class="n">model_config</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">context_info</span> <span class="o">=</span> <span class="n">context_info</span> <span class="ow">or</span> <span class="p">{}</span>
+
+        <span class="c1"># Load model through backend</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model_config</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_dris</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">DRIS</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="LearningBasedTSIP.reset">
+<a class="viewcode-back" href="../../../api/physics.html#manidreams.physics.learned_tsip.LearningBasedTSIP.reset">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">seed</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+              <span class="n">options</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DRIS</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reset TSIP model.</span>
+
+<span class="sd">        Calls backend.reset() which replicates PlayCageEnv.reset()</span>
+<span class="sd">        (play_cage_env.py:132-147).</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            seed: Random seed (ignored)</span>
+<span class="sd">            options: Reset options (ignored)</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Initial DRIS with observation as HWC [0,1] numpy array</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Backend.reset() handles everything (wm_env.reset, tensor conversion)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_dris</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_dris</span></div>
+
+
+<div class="viewcode-block" id="LearningBasedTSIP.get_dris">
+<a class="viewcode-back" href="../../../api/physics.html#manidreams.physics.learned_tsip.LearningBasedTSIP.get_dris">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_dris</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env_indices</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">DRIS</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get current DRIS state from backend.</span>
+
+<span class="sd">        Delegates to backend.get_dris() for state retrieval.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            env_indices: List of indices (ignored for single-env learned models)</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List containing current DRIS</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Delegate to backend to get current DRIS</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_dris</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">get_dris</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">current_dris</span><span class="p">]</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_dris</span> <span class="k">else</span> <span class="p">[]</span></div>
+
+
+<div class="viewcode-block" id="LearningBasedTSIP.set_dris">
+<a class="viewcode-back" href="../../../api/physics.html#manidreams.physics.learned_tsip.LearningBasedTSIP.set_dris">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_dris</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dris</span><span class="p">:</span> <span class="n">DRIS</span><span class="p">,</span> <span class="n">env_indices</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set DRIS state and synchronize to backend.</span>
+
+<span class="sd">        Delegates to backend.set_dris() for state synchronization.</span>
+<span class="sd">        Backend handles conversion from DRIS to internal representation.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            dris: DRIS object to set</span>
+<span class="sd">            env_indices: List of indices (ignored for single-env models)</span>
+
+<span class="sd">        Example::</span>
+
+<span class="sd">            # After executor feedback</span>
+<span class="sd">            synthetic_image = generate_synthetic_observation(object_pos)</span>
+<span class="sd">            new_dris = DRIS(</span>
+<span class="sd">                observation=synthetic_image,</span>
+<span class="sd">                context={},</span>
+<span class="sd">                metadata={&#39;timestep&#39;: 100}</span>
+<span class="sd">            )</span>
+<span class="sd">            tsip.set_dris(new_dris)  # Backend handles internal state update</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Update TSIP&#39;s reference</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_dris</span> <span class="o">=</span> <span class="n">dris</span>
+
+        <span class="c1"># Delegate to backend for internal state synchronization</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">set_dris</span><span class="p">(</span><span class="n">dris</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="LearningBasedTSIP.next">
+<a class="viewcode-back" href="../../../api/physics.html#manidreams.physics.learned_tsip.LearningBasedTSIP.next">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dris</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">DRIS</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">DRIS</span><span class="p">]],</span> <span class="n">action</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]],</span>
+             <span class="n">cage</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">DRIS</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">DRIS</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Predict next DRIS given current DRIS and action(s).</span>
+
+<span class="sd">        Simplified version: Directly calls backend.predict_step() which</span>
+<span class="sd">        replicates PlayCageEnv.step() (play_cage_env.py:190-239).</span>
+
+<span class="sd">        NOTE: dris parameter is IGNORED because backend maintains internal</span>
+<span class="sd">        state (self.obs tensor). This replicates Diamond&#39;s behavior where</span>
+<span class="sd">        PlayCageEnv.step() uses self.obs instead of external state.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            dris: Current DRIS (IGNORED - backend uses internal state)</span>
+<span class="sd">            action: Action index (0-15) or list of actions</span>
+<span class="sd">            cage: Optional cage object (ignored)</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Next DRIS or list of DRIS with observation as HWC [0,1] numpy</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Handle single vs list inputs</span>
+        <span class="n">single_input</span> <span class="o">=</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">action</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span>
+        <span class="n">action_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">action</span><span class="p">]</span> <span class="k">if</span> <span class="n">single_input</span> <span class="k">else</span> <span class="n">action</span>
+
+        <span class="c1"># Predict next states</span>
+        <span class="n">next_dris_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">current_action</span> <span class="ow">in</span> <span class="n">action_list</span><span class="p">:</span>
+            <span class="c1"># Direct call to backend.predict_step()</span>
+            <span class="c1"># Backend maintains self.obs internally (like PlayCageEnv)</span>
+            <span class="c1"># dris parameter is ignored - backend uses its own state</span>
+            <span class="n">next_frame</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">predict_step</span><span class="p">(</span>
+                <span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span>        <span class="c1"># Can be ignored by backend</span>
+                <span class="n">current_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>      <span class="c1"># Ignored - backend uses self.obs</span>
+                <span class="n">action</span><span class="o">=</span><span class="n">current_action</span>
+            <span class="p">)</span>
+
+            <span class="c1"># Create next DRIS</span>
+            <span class="n">next_dris</span> <span class="o">=</span> <span class="n">DRIS</span><span class="p">(</span>
+                <span class="n">observation</span><span class="o">=</span><span class="n">next_frame</span><span class="p">,</span>
+                <span class="n">context</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">context_info</span><span class="p">,</span>
+                <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;timestep&#39;</span><span class="p">:</span> <span class="n">info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;timestep&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)}</span>
+            <span class="p">)</span>
+            <span class="n">next_dris_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">next_dris</span><span class="p">)</span>
+
+            <span class="c1"># Update current_dris for reference</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">current_dris</span> <span class="o">=</span> <span class="n">next_dris</span>
+
+        <span class="c1"># Return in same format as input</span>
+        <span class="k">return</span> <span class="n">next_dris_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">single_input</span> <span class="k">else</span> <span class="n">next_dris_list</span></div>
+
+
+<div class="viewcode-block" id="LearningBasedTSIP.get_observation_space">
+<a class="viewcode-back" href="../../../api/physics.html#manidreams.physics.learned_tsip.LearningBasedTSIP.get_observation_space">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_observation_space</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">gym</span><span class="o">.</span><span class="n">Space</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get observation space from backend.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">get_observation_space</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="LearningBasedTSIP.get_action_space">
+<a class="viewcode-back" href="../../../api/physics.html#manidreams.physics.learned_tsip.LearningBasedTSIP.get_action_space">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_action_space</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">gym</span><span class="o">.</span><span class="n">Space</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get action space from backend.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">get_action_space</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="LearningBasedTSIP.close">
+<a class="viewcode-back" href="../../../api/physics.html#manidreams.physics.learned_tsip.LearningBasedTSIP.close">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Close learned model and clean up resources.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">backend</span><span class="p">,</span> <span class="s1">&#39;close_model&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">close_model</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
+
+        <span class="c1"># Clear stored data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_dris</span> <span class="o">=</span> <span class="kc">None</span></div>
+</div>
+
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By ManiDreams Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, ManiDreams Team.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

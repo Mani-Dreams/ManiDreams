@@ -108,7 +108,7 @@ html_theme_options = {
     "use_repository_button": True,
     "use_issues_button": False,
     "use_edit_page_button": False,
-    "path_to_docs": "docs/",
+    "path_to_docs": "docs_src/",
     "show_toc_level": 2,
     "navigation_with_keys": True,
     "collapse_navigation": False,
