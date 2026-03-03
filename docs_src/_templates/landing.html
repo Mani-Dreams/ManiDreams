@@ -352,54 +352,44 @@
         <h2 class="title is-3">Runnable Examples</h2>
         <div class="content has-text-justified">
           <p>
-            Cage-constrained manipulation across three core tasks with different solver and TSIP configurations.
+            Cage-constrained manipulation across four tasks with different solver and TSIP configurations.
           </p>
         </div>
       </div>
     </div>
 
     <div class="columns is-centered">
-      <!-- Pushing -->
-      <div class="column is-one-third video-item">
-        <!-- Replace placeholder with:
-        <video autoplay controls muted loop playsinline height="100%">
-          <source src="_static/media/push_demo.mp4" type="video/mp4">
+      <!-- Object Pushing (sim) -->
+      <div class="column is-one-quarter video-item">
+        <video autoplay controls muted loop playsinline style="width:100%; border-radius:10px;">
+          <source src="_static/media/11.mp4" type="video/mp4">
         </video>
-        -->
-        <div class="media-placeholder video-ph">
-          <span class="placeholder-icon"><i class="fas fa-play-circle"></i></span>
-          <span>push_demo.mp4</span>
-        </div>
         <div class="video-label">Object Pushing</div>
-        <div class="video-desc">Multi-object herding with orbital cage constraints</div>
+        <div class="video-desc">Simulation-based TSIP</div>
       </div>
-      <!-- Catching -->
-      <div class="column is-one-third video-item">
-        <!-- Replace placeholder with:
-        <video autoplay controls muted loop playsinline height="100%">
-          <source src="_static/media/catch_demo.mp4" type="video/mp4">
+      <!-- Object Pushing (learned) -->
+      <div class="column is-one-quarter video-item">
+        <video autoplay controls muted loop playsinline style="width:100%; border-radius:10px;">
+          <source src="_static/media/12.mp4" type="video/mp4">
         </video>
-        -->
-        <div class="media-placeholder video-ph">
-          <span class="placeholder-icon"><i class="fas fa-play-circle"></i></span>
-          <span>catch_demo.mp4</span>
-        </div>
-        <div class="video-label">Object Catching</div>
-        <div class="video-desc">RL + CAGE mode with PlateCage constraint</div>
+        <div class="video-label">Object Pushing</div>
+        <div class="video-desc">Learning-based TSIP</div>
       </div>
-      <!-- Picking -->
-      <div class="column is-one-third video-item">
-        <!-- Replace placeholder with:
-        <video autoplay controls muted loop playsinline height="100%">
-          <source src="_static/media/pick_demo.mp4" type="video/mp4">
+      <!-- Ball Catching -->
+      <div class="column is-one-quarter video-item">
+        <video autoplay controls muted loop playsinline style="width:100%; border-radius:10px;">
+          <source src="_static/media/13.mp4" type="video/mp4">
         </video>
-        -->
-        <div class="media-placeholder video-ph">
-          <span class="placeholder-icon"><i class="fas fa-play-circle"></i></span>
-          <span>pick_demo.mp4</span>
-        </div>
-        <div class="video-label">Object Picking</div>
-        <div class="video-desc">MPPI planning with plan-then-execute separation</div>
+        <div class="video-label">Ball Catching</div>
+        <div class="video-desc">RL policy sampler</div>
+      </div>
+      <!-- Card Picking -->
+      <div class="column is-one-quarter video-item">
+        <video autoplay controls muted loop playsinline style="width:100%; border-radius:10px;">
+          <source src="_static/media/14.mp4" type="video/mp4">
+        </video>
+        <div class="video-label">Card Picking</div>
+        <div class="video-desc">MPPI optimizer</div>
       </div>
     </div>
   </div>
@@ -422,34 +412,24 @@
       </div>
     </div>
 
+    <!-- Real Task 1 -->
     <div class="columns is-centered">
-      <!-- Real Task 1 -->
-      <div class="column is-half video-item">
-        <!-- Replace placeholder with:
-        <video autoplay controls muted loop playsinline height="100%">
-          <source src="_static/media/real_task1.mp4" type="video/mp4">
+      <div class="column is-full video-item">
+        <video autoplay controls muted loop playsinline style="width:100%; border-radius:10px;">
+          <source src="_static/media/real1.mp4" type="video/mp4">
         </video>
-        -->
-        <div class="media-placeholder video-ph">
-          <span class="placeholder-icon"><i class="fas fa-play-circle"></i></span>
-          <span>real_task1.mp4</span>
-        </div>
-        <div class="video-label">Real Robot Task 1</div>
-        <div class="video-desc">Description of real-world task 1</div>
+        <div class="video-label">Random Object Picking from Clutter</div>
+        <div class="video-desc">Push-then-pick strategy with diffusion-based TSIP and real-time DRIS via SAM2</div>
       </div>
-      <!-- Real Task 2 -->
-      <div class="column is-half video-item">
-        <!-- Replace placeholder with:
-        <video autoplay controls muted loop playsinline height="100%">
-          <source src="_static/media/real_task2.mp4" type="video/mp4">
+    </div>
+    <!-- Real Task 2 -->
+    <div class="columns is-centered">
+      <div class="column is-full video-item">
+        <video autoplay controls muted loop playsinline style="width:100%; border-radius:10px;">
+          <source src="_static/media/real2.mp4" type="video/mp4">
         </video>
-        -->
-        <div class="media-placeholder video-ph">
-          <span class="placeholder-icon"><i class="fas fa-play-circle"></i></span>
-          <span>real_task2.mp4</span>
-        </div>
-        <div class="video-label">Real Robot Task 2</div>
-        <div class="video-desc">Description of real-world task 2</div>
+        <div class="video-label">Flat Object Scooping from Clutter</div>
+        <div class="video-desc">Push-to-corner-then-scoop strategy with diffusion-based TSIP and real-time DRIS via SAM2</div>
       </div>
     </div>
   </div>
@@ -466,7 +446,7 @@
         <h2 class="title is-3">Default ManiSkill Tasks</h2>
         <div class="content has-text-justified">
           <p>
-            Uncertainty-aware DRIS evaluation on standard ManiSkill benchmarks.
+            Uncertainty-aware DRIS evaluation on standard ManiSkill benchmarks (top: simulation-based TSIP, bottom: executor).
           </p>
         </div>
       </div>
@@ -474,46 +454,28 @@
 
     <div class="columns is-centered">
       <!-- PushCube -->
-      <div class="column is-one-third video-item">
-        <!-- Replace placeholder with:
-        <video autoplay controls muted loop playsinline height="100%">
-          <source src="_static/media/pushcube_demo.mp4" type="video/mp4">
+      <div class="column video-item">
+        <video autoplay controls muted loop playsinline style="width:100%; border-radius:10px;">
+          <source src="_static/media/1.mp4" type="video/mp4">
         </video>
-        -->
-        <div class="media-placeholder video-ph">
-          <span class="placeholder-icon"><i class="fas fa-play-circle"></i></span>
-          <span>pushcube_demo.mp4</span>
-        </div>
         <div class="video-label">PushCube</div>
         <div class="video-desc">Push a cube to a target location</div>
       </div>
       <!-- PickCube -->
-      <div class="column is-one-third video-item">
-        <!-- Replace placeholder with:
-        <video autoplay controls muted loop playsinline height="100%">
-          <source src="_static/media/pickcube_demo.mp4" type="video/mp4">
+      <div class="column video-item">
+        <video autoplay controls muted loop playsinline style="width:100%; border-radius:10px;">
+          <source src="_static/media/2.mp4" type="video/mp4">
         </video>
-        -->
-        <div class="media-placeholder video-ph">
-          <span class="placeholder-icon"><i class="fas fa-play-circle"></i></span>
-          <span>pickcube_demo.mp4</span>
-        </div>
         <div class="video-label">PickCube</div>
-        <div class="video-desc">Pick up a cube and place it at a goal</div>
+        <div class="video-desc">Pick up a cube and move to a goal position</div>
       </div>
       <!-- PushT -->
-      <div class="column is-one-third video-item">
-        <!-- Replace placeholder with:
-        <video autoplay controls muted loop playsinline height="100%">
-          <source src="_static/media/pusht_demo.mp4" type="video/mp4">
+      <div class="column video-item">
+        <video autoplay controls muted loop playsinline style="width:100%; border-radius:10px;">
+          <source src="_static/media/3.mp4" type="video/mp4">
         </video>
-        -->
-        <div class="media-placeholder video-ph">
-          <span class="placeholder-icon"><i class="fas fa-play-circle"></i></span>
-          <span>pusht_demo.mp4</span>
-        </div>
         <div class="video-label">PushT</div>
-        <div class="video-desc">Push a T-shaped block into alignment</div>
+        <div class="video-desc">Push a T-shaped block to a target pose</div>
       </div>
     </div>
   </div>
